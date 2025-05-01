@@ -16,26 +16,36 @@ const datas=await books.findAll()
 
 
 
-// //// database connection link 
-// "postgresql://postgres.cxqgmsppjjmtlvghyktz:[venom&@321]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres"
-
-
 app.post('/books',async(req,res)=>{
-console.log(req.body)
-const{bookName,bookPrice,bookAuthor,bookGenre}= req.body
+
+try{
+const{bookName,bookPrice,bookAuthor,bookGenre}=req.body
+if (!bookName || !bookPrice || !bookAuthor || !bookGenre){
+    return res.json({
+        message:"Please Provide All Required Fields."
+    });
+}
+
  await books.create({
     bookName:bookName,
     bookPrice:bookPrice,
     bookAuthor:bookAuthor,
     bookGenre:bookGenre
 
-})
+});
     res.json({
-        message:"Book is Sucessfully Inserted.",
+        message:"Book is Sucessfully Inserted."
        
-    })
+    });
+} catch(err){
+    res.json({
+        message:"Error Occured during insertion.",
+        error:err.message
+
+    });
 }
-);
+});
+
 
 app.patch('/books/:id',(req,res)=>{
 
