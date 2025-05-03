@@ -1,1 +1,1 @@
-The Book Management System is a software application designed to manage the cataloging, tracking, and circulation of books in a library, bookstore, or personal collection. It provides a centralized platform for administrators, staff, and users to perform key operations related to books efficiently and effectively.
+
