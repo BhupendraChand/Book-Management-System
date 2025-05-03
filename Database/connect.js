@@ -2,7 +2,7 @@
 const {Sequelize,DataTypes} = require('sequelize');
 
 const sequelize= new Sequelize("postgresql://postgres.cxqgmsppjjmtlvghyktz:venom&@321@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres")
-// const bookModel= require("./models/bookModel")
+const bookModel= require("./models/bookModel")
 sequelize.authenticate()
 .then(() => {
     console.log("Authencitation Database connected Successfully.");
