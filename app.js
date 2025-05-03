@@ -22,11 +22,11 @@ try{
 const{bookName,bookPrice,bookAuthor,bookGenre}=req.body
 if (!bookName || !bookPrice || !bookAuthor || !bookGenre){
     return res.json({
-        message:"Please Provide All Required Fields."
+        message:" All Field is Required for Insertion."
     });
 }
 
- await books.create({
+ const createbooks= await books.create({
     bookName:bookName,
     bookPrice:bookPrice,
     bookAuthor:bookAuthor,
@@ -34,7 +34,8 @@ if (!bookName || !bookPrice || !bookAuthor || !bookGenre){
 
 });
     res.json({
-        message:"Book is Sucessfully Inserted."
+        message:"Book is Sucessfully Inserted.",
+        datas:createbooks
        
     });
 } catch(err){
